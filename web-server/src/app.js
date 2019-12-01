@@ -3,6 +3,7 @@ const express = require('express');
 const hbs = require('hbs');
 
 let app = express();
+let port = process.env.PORT || 3000;
 
 let viewsPath = path.join(__dirname, '../templates/views')
 let partialsPath = path.join(__dirname, '../templates/partials')
@@ -37,6 +38,12 @@ app.get("/help", (req, res) => {
     })
 });
 
+app.get('/weather', (req, res) => {
+    res.render('weather', {
+        title: "This is weather title"
+    })
+})
+
 app.get("/products", (req, res) => {
     let qs = req.query;
     if (!qs.address) {
@@ -57,6 +64,6 @@ app.get("*", (req, res) => {
     })
 });
 
-app.listen(3000, () => {
+app.listen(port, () => {
     console.log("server started.....!!");
 })
