@@ -25,7 +25,7 @@ app.get("", (req, res) => {
 
 app.get("/about", (req, res) => {
     res.render('about', {
-        img: '/images/img1.jpg',
+        img: '/images/Lighthouse.jpg',
         title: 'Nature',
         name: 'About page'
     })
